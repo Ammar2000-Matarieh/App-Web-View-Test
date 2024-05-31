@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_web_view/body_web_view.dart';
+import 'package:test_web_view/view/body_web_view.dart';
 
 class WebViewTestApp extends StatefulWidget {
   const WebViewTestApp({super.key});
@@ -23,12 +23,8 @@ class _WebViewTestAppState extends State<WebViewTestApp> {
         children: [
           Center(
             child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) {
-                    return const BodyWebView();
-                  }));
-                },
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const BodyWebView())),
                 child: const Text("Web View App")),
           )
         ],
