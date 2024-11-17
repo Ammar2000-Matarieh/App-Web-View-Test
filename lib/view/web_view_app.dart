@@ -14,7 +14,9 @@ class _WebViewTestAppState extends State<WebViewTestApp> {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
-        title: const Text("App Web View"),
+        title: const Text(
+          "App Web View",
+        ),
         centerTitle: true,
       ),
       body: Column(
@@ -23,9 +25,13 @@ class _WebViewTestAppState extends State<WebViewTestApp> {
         children: [
           Center(
             child: ElevatedButton(
-                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const BodyWebView())),
-                child: const Text("Web View App")),
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const BodyWebView(),
+                ),
+              ),
+              child: const Text("Web View App"),
+            ),
           )
         ],
       ),

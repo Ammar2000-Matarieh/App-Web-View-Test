@@ -11,7 +11,11 @@ class BodyWebView extends StatefulWidget {
 class _BodyWebViewState extends State<BodyWebView> {
   final controller = WebViewController()
     ..setJavaScriptMode(JavaScriptMode.unrestricted)
-    ..setBackgroundColor(const Color(0x00000000))
+    ..setBackgroundColor(
+      const Color(
+        0x00000000,
+      ),
+    )
     ..setNavigationDelegate(
       NavigationDelegate(
         onProgress: (int progress) {
@@ -21,18 +25,34 @@ class _BodyWebViewState extends State<BodyWebView> {
         onPageFinished: (String url) {},
         onWebResourceError: (WebResourceError error) {},
         onNavigationRequest: (NavigationRequest request) {
-          if (request.url.startsWith('https://chat.openai.com/')) {
+          if (request.url.startsWith(
+            'https://chat.openai.com/',
+          )) {
             return NavigationDecision.prevent;
           }
           return NavigationDecision.navigate;
         },
       ),
     )
-    ..loadRequest(Uri.parse('https://chat.openai.com/'));
+    ..loadRequest(
+      Uri.parse(
+        'https://www.google.com/',
+      ),
+    );
+
+  //   @override
+  // void initState() {
+
+  //   super.initState();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Page Web View ")),
+      appBar: AppBar(
+        title: const Text("Page Web View "),
+        centerTitle: true,
+      ),
       body: WebViewWidget(controller: controller),
     );
   }
